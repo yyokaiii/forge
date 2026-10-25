@@ -1,0 +1,111 @@
+{
+  "name": "forge",
+  "displayName": "Forge",
+  "icon": "img/icon.png",
+  "publisher": "yokai",
+  "description": "A simple way of making your code comments more readable. Source on my github @yyokaiii",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.140.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:python"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Forge",
+      "properties": {
+        "forge.commentColors.exclamation.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Color ! comment lines."
+        },
+        "forge.commentColors.exclamation.color": {
+          "type": "string",
+          "default": "#c1121f",
+          "format": "color",
+          "description": "Color for ! comment lines."
+        },
+        "forge.commentColors.question.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Color ? comment lines."
+        },
+        "forge.commentColors.question.color": {
+          "type": "string",
+          "default": "#0077b6",
+          "format": "color",
+          "description": "Color for ? comment lines."
+        },
+        "forge.commentColors.plus.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Color + comment lines."
+        },
+        "forge.commentColors.plus.color": {
+          "type": "string",
+          "default": "#16db65",
+          "format": "color",
+          "description": "Color for + comment lines."
+        },
+        "forge.commentColors.minus.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Color - comment lines."
+        },
+        "forge.commentColors.minus.color": {
+          "type": "string",
+          "default": "#f9a620",
+          "format": "color",
+          "description": "Color for - comment lines."
+        },
+        "forge.commentColors.asterisk.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Color * comment lines."
+        },
+        "forge.commentColors.asterisk.color": {
+          "type": "string",
+          "default": "#8367c7",
+          "format": "color",
+          "description": "Color for * comment lines."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "forge.debugcmd",
+        "title": "ForgeDebug"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "@types/vscode": "^1.140.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0",
+    "@vscode/vsce": "^4.0.0",
+    "eslint": "^10.5.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.61.1"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  }
+}
